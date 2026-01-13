@@ -10,17 +10,14 @@ var longestOnes = function(nums, k) {
     let maxOnes = 0;
     let flips = k;
     while(r<nums.length){
-        if(nums[r]===1){
+       while(r<=nums.length && flips>=0){
+        if(nums[r]===0) flips--;
         r++;
-            if(maxOnes < (r-l)) maxOnes = r-l;
-        }else if(flips>0){
-        r++;
-            if(maxOnes < (r-l)) maxOnes = r-l;
-        flips--;
-        }else{
-        l++;
-        r=l;
-        flips = k;
+        }
+       if (maxOnes < ((r-1)-l)) maxOnes = (r-1)-l;
+        while(flips<0 && l<r){
+            if(nums[l]===0) flips++;
+            l++;
         }
     }
     return maxOnes;
