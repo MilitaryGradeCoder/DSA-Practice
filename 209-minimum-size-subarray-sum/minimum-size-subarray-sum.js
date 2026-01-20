@@ -11,13 +11,11 @@ var minSubArrayLen = function(target, nums) {
     while(r<nums.length){
         if (nums[r]>=target) return 1;
         sum += nums[r];
-        if(sum>=target){
-            while(l<r && sum>=target){
+            while(sum>=target){
                 if((r-l+1) < minLen) minLen = r-l+1;
                 sum -= nums[l];
                 l++;
             }
-        }
     r++; 
     }
     if (minLen<nums.length+1) return minLen;
