@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var minBitwiseArray = function(nums) {
+    let ans = [];
+    for(let i=0; i<nums.length; i++){
+        let flag = false;
+        for(let j=0; j<nums[i]; j++){
+            if((j | (j+1)) == nums[i]){
+                ans.push(j);
+                flag = true;
+                break;
+            }
+        }
+        if(flag==false) ans.push(-1);
+    }
+    return ans;
+};
