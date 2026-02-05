@@ -8,9 +8,7 @@ var maxSumTrionic = function(nums) {
     let maxSum = -Infinity;
     while (r<nums.length){
         if(nums[r]>nums[r-1]){
-            while(nums[r-1]<0 && nums[r+1]>nums[r] && r<nums.length){
-                r++;
-            }
+            while(nums[r-1]<0 && nums[r+1]>nums[r] && r<nums.length) r++;
             let sum = nums[r-1];
             while(nums[r]>nums[r-1] && r<nums.length){
                 sum += nums[r];
