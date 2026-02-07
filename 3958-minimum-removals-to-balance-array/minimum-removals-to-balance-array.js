@@ -12,10 +12,10 @@ var minRemoval = function(nums, k) {
     let maxLen = 0;
     while(r<nums.length){
         while(k*nums[l]>=nums[r]){
-            maxLen = Math.max(maxLen, (r-l) + 1)
+            if(maxLen < ((r-l) + 1)) maxLen = (r-l) + 1;
             r++;
         }
         l++;
     }
-    return (nums.length - maxLen)
+    return (nums.length - maxLen);
 }
