@@ -10,12 +10,12 @@ var maxSubArray = function(nums) {
     while(r<nums.length){
         if(sum < 0 && nums[r]>=sum){
             sum = nums[r];
-            maxSum = Math.max(maxSum, sum);
+            if(sum > maxSum) maxSum = sum;
             r++;
             continue;
         }
         sum += nums[r];
-        maxSum = Math.max(maxSum, sum);
+        if(sum > maxSum) maxSum = sum;
         r++;
     }
     return maxSum;
