@@ -5,6 +5,7 @@
 var numSpecial = function(mat) {
     let count = 0;
     let colCount = new Array(mat[0].length).fill(0);
+    let goodRows = [];
     for(let i=0; i<mat.length; i++){
         let rowCount = 0;
         let rowPosition = 0;
@@ -15,19 +16,14 @@ var numSpecial = function(mat) {
                 rowPosition = j;
             }
         }
-        if(rowCount === 1 && colCount[rowPosition] === 1){
-            if(i === mat.length - 1){
-                count++;
-            }else{
-                let flag = true;
-                for(let row = i+1; row<mat.length; row++){
-                    if(mat[row][rowPosition]===1){
-                    flag = false;
-                    break;
-                    }
-                }
-                if(flag==true) count++;
-            }
+        if(rowCount === 1){
+           goodRows.push(rowPosition);
+        }
+    }
+    if (goodRows.length === 0) return 0;
+    for(let i=0; i<goodRows.length; i++){
+        if(colCount[goodRows[i]] === 1){
+            count++;
         }
     }
     return count;
