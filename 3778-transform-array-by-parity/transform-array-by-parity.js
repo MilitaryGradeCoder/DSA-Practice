@@ -10,5 +10,5 @@ var transformArray = function(nums) {
             nums[i]=0;
         }
     }
-    return nums.sort((a,b)=>a-b);
+    return nums.sort();
 };
