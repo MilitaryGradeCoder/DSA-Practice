@@ -17,10 +17,9 @@ var constructMaximumBinaryTree = function(nums) {
         if(start>end) return null;
         
         let maxIdx = start;
-        let maxVal = nums[start];
+        
         for(let i=start; i<=end; i++){
-            if(nums[i]>maxVal){
-                maxVal = nums[i];
+            if(nums[i]>nums[maxIdx]){   
                 maxIdx = i;
             } 
         }
