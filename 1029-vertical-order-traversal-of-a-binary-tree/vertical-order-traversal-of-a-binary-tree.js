@@ -12,12 +12,12 @@
  */
 var verticalTraversal = function(root) {
     //obtain height and width of tree to create a matrix
-    let rows = getHeight(root); 
+    let rows = getHeight(root); // height of the tree
     let leftWidth = 0;
     let rightWidth = 0;
     getWidth(root, 0);
-    
-    let cols = Math.abs(leftWidth) + 1 + rightWidth;
+    let cols = Math.abs(leftWidth) + 1 + rightWidth; // total width
+    //start with coordinates of root
     let x = 0;
     let y = Math.abs(leftWidth);
     // create a 2d matrix
